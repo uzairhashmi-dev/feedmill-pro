@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL: 'https://feedmil-backend.vercel.app/api',
+  baseURL: 'http://localhost:8000/api',
   withCredentials: true,
 })
 
@@ -17,7 +17,7 @@ API.interceptors.response.use(
       original._retry = true
       try {
         await axios.post(
-          'https://feedmil-backend.vercel.app/api/auth/refreshAccessToken',
+          'http://localhost:8000/api/auth/refreshAccessToken',
           {},
           { withCredentials: true }
         )
