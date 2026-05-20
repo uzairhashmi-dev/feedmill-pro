@@ -35,7 +35,6 @@ const buildCustomers = (orders) => {
   })
   return Object.values(map).sort((a, b) => b.totalRevenue - a.totalRevenue)
 }
-
 // ── Thunks 
 export const loadCustomers = createAsyncThunk(
   'customer/loadAll',
@@ -107,7 +106,6 @@ const customerSlice = createSlice({
 
 export const { clearSearch, setSelectedCustomer } = customerSlice.actions
 
-// ── Selector
 export const selectAllCustomers     = (s) => s.customer.customers
 export const selectMonthlyStats     = (s) => s.customer.monthlyStats
 export const selectCustomerLoading  = (s) => s.customer.loading

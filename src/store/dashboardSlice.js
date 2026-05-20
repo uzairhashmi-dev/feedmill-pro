@@ -61,7 +61,6 @@ export const fetchDashboardStats = createAsyncThunk(
     }
   }
 )
-
 // ── Slice
 const dashboardSlice = createSlice({
   name: 'dashboard',
@@ -102,7 +101,6 @@ const dashboardSlice = createSlice({
 
 export const { setPeriod, setCustomStart, setCustomEnd } = dashboardSlice.actions
 
-// ── Selectors 
 export const selectPeriod          = (s) => s.dashboard.period
 export const selectCustomStart     = (s) => s.dashboard.customStart
 export const selectCustomEnd       = (s) => s.dashboard.customEnd

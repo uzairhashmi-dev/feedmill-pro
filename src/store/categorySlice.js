@@ -17,7 +17,6 @@ export const loadCategories = createAsyncThunk(
     }
   }
 )
-
 export const searchCategoryItems = createAsyncThunk(
   'category/search',
   async (term, { rejectWithValue }) => {
@@ -29,7 +28,6 @@ export const searchCategoryItems = createAsyncThunk(
     }
   }
 )
-
 export const createCategoryItem = createAsyncThunk(
   'category/create',
   async (formData, { dispatch, rejectWithValue }) => {
@@ -55,7 +53,6 @@ export const updateCategoryItem = createAsyncThunk(
     }
   }
 )
-
 export const deleteCategoryItem = createAsyncThunk(
   'category/delete',
   async (id, { rejectWithValue }) => {
@@ -71,7 +68,6 @@ export const deleteCategoryItem = createAsyncThunk(
     }
   }
 )
-
 const categorySlice = createSlice({
   name: 'category',
   initialState: {

@@ -10,12 +10,10 @@ const savedTheme =
   localStorage.getItem('theme') ||
   (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
 
-// Apply .dark class to <html> immediately
-if (savedTheme === 'dark') {
+if (savedTheme === 'light') {
   document.documentElement.classList.add('dark')
 }
 
-// Sync to Redux store so components can read it
 store.dispatch(setTheme(savedTheme))
 
 createRoot(document.getElementById('root')).render(

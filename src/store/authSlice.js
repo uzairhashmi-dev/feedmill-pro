@@ -12,13 +12,11 @@ const loadUserFromStorage = () => {
 }
 
 // ── Async Thunks (same API calls as before)
-
 export const loginThunk = createAsyncThunk(
   'auth/login',
   async ({ username, password }, { rejectWithValue }) => {
     try {
       const data = await loginUser({ username, password })
-      // data = { id, fullname, username, email, role }
       localStorage.setItem('feedmill_user', JSON.stringify(data))
       return data
     } catch (err) {
@@ -28,7 +26,6 @@ export const loginThunk = createAsyncThunk(
     }
   }
 )
-
 export const logoutThunk = createAsyncThunk(
   'auth/logout',
   async (_, { rejectWithValue }) => {
@@ -37,17 +34,15 @@ export const logoutThunk = createAsyncThunk(
     } catch (err) {
       return rejectWithValue(err.response?.data?.message || 'Logout failed')
     } finally {
-      // always clear local state even if API fails
       localStorage.removeItem('feedmill_user')
     }
   }
 )
-
 // ── Slice 
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
-    user: loadUserFromStorage(),   // same as old useState(() => {...})
+    user: loadUserFromStorage(),
     isAuthenticated: !!loadUserFromStorage(),
     loading: false,
     error: null,
